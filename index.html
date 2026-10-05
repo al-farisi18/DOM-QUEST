@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perpustakaan DOM</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="kepala">
+    <h1 id="judul">Perpustakaan Digital</h1>
+    <p class="info">Selamat datang di perpustakaan.</p>
+    <p class="statistik" id="statistik"></p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Tambah buku</h2>
+      <!-- novalidate: validasi dilakukan sendiri lewat JavaScript -->
+      <form id="form-buku" novalidate>
+        <div class="field">
+          <label for="input-judul">Judul</label>
+          <input type="text" id="input-judul" name="judul" placeholder="Judul buku" autocomplete="off">
+          <small class="error" id="err-judul" role="alert"></small>
+        </div>
+        <div class="field">
+          <label for="input-penulis">Penulis</label>
+          <input type="text" id="input-penulis" name="penulis" placeholder="Nama penulis" autocomplete="off">
+          <small class="error" id="err-penulis" role="alert"></small>
+        </div>
+        <div class="field field-kecil">
+          <label for="input-tahun">Tahun terbit</label>
+          <input type="text" inputmode="numeric" id="input-tahun" name="tahun" placeholder="2005" autocomplete="off">
+          <small class="error" id="err-tahun" role="alert"></small>
+        </div>
+        <button type="submit" class="btn-utama">Tambah buku</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Daftar buku</h2>
+      <input type="text" id="cari" placeholder="Cari judul buku..." aria-label="Cari judul buku">
+      <p id="hasil-cari"></p>
+
+      <!-- Isi daftar dirender oleh JavaScript dari array dataBuku -->
+      <ul id="daftar-buku"></ul>
+      <p id="kosong" hidden>Belum ada buku. Tambahkan lewat form di atas.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Info DOM (traversal)</h2>
+      <p class="redup">Klik <b>Detail</b> pada sebuah buku untuk melihat posisinya di pohon DOM.</p>
+      <ul id="info-dom"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>Log aktivitas</h2>
+      <ol id="log"></ol>
+    </section>
+  </main>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
